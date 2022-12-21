@@ -5,7 +5,7 @@ public class ThreadSafeSingleton {
 
     private volatile ThreadSafeSingleton helper;
 
-    public ThreadSafeSingleton getHelper() {
+    public ThreadSafeSingleton getInstance() {
         ThreadSafeSingleton localRef = helper;
         if (localRef == null) {
             synchronized (this) {
