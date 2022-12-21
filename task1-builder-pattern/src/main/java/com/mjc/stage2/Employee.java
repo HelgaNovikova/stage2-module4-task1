@@ -13,9 +13,6 @@ public class Employee {
     private String email;
     private String carNumber;
 
-    public Employee() {
-    }
-
     public String getName() {
         return name;
     }
@@ -110,8 +107,4 @@ public class Employee {
             return newEmployee;
         }
     }
-
-//    public static void main(String[] args) {
-//        Employee emp = new EmployeeBuilder().setName("KAte").build();
-//    }
 }

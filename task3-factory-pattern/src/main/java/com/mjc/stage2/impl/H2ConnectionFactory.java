@@ -20,10 +20,7 @@ public class H2ConnectionFactory implements ConnectionFactory {
         String url = props.getProperty("db_url");
         String password = props.getProperty("password");
         String name = props.getProperty("user");
-        String driver = props.getProperty("jdbc_driver");
-        return DriverManager.getConnection(
-                url,name,password);
+        return DriverManager.getConnection(url, name, password);
     }
-    // Write your code here!
 }
 

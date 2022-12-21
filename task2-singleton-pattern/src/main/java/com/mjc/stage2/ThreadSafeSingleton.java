@@ -2,17 +2,20 @@ package com.mjc.stage2;
 
 public class ThreadSafeSingleton {
     // Write your code here!
+    private ThreadSafeSingleton() {
+        throw new UnsupportedOperationException();
+    }
 
-    private static volatile ThreadSafeSingleton helper;
+    private static volatile ThreadSafeSingleton instance;
 
     public static ThreadSafeSingleton getInstance() {
-        ThreadSafeSingleton localRef = helper;
+        ThreadSafeSingleton localRef = instance;
         if (localRef == null) {
             synchronized (ThreadSafeSingleton.class) {
                 // true
-                localRef = helper;
+                localRef = instance;
                 if (localRef == null) {
-                    helper = localRef = new ThreadSafeSingleton();
+                    instance = localRef = new ThreadSafeSingleton();
                 }
                 //false
             }
