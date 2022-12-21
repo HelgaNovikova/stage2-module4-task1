@@ -3,7 +3,6 @@ package com.mjc.stage2;
 public class ThreadSafeSingleton {
     // Write your code here!
     private ThreadSafeSingleton() {
-        throw new UnsupportedOperationException();
     }
 
     private static volatile ThreadSafeSingleton instance;
