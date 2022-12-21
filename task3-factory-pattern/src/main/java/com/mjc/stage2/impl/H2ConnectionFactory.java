@@ -14,15 +14,15 @@ public class H2ConnectionFactory implements ConnectionFactory {
     @Override
     public Connection createConnection() {
         Properties props = new Properties();
-        InputStream fis =  H2ConnectionFactory.class.getClassLoader().getResourceAsStream("app.properties");
-        props.load(fis);
+        try (InputStream fis = H2ConnectionFactory.class.getClassLoader().getResourceAsStream("h2database.properties")) {
+            props.load(fis);
+        }
         String url = props.getProperty("db_url");
         String password = props.getProperty("password");
         String name = props.getProperty("user");
         String driver = props.getProperty("jdbc_driver");
-        Connection con= DriverManager.getConnection(
+        return DriverManager.getConnection(
                 url,name,password);
-        return con;
     }
     // Write your code here!
 }
