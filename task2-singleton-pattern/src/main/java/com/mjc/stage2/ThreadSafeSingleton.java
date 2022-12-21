@@ -8,18 +8,14 @@ public class ThreadSafeSingleton {
     private static volatile ThreadSafeSingleton instance;
 
     public static ThreadSafeSingleton getInstance() {
-        ThreadSafeSingleton localRef = instance;
-        if (localRef == null) {
+        if (instance == null) {
             synchronized (ThreadSafeSingleton.class) {
-                // true
-                localRef = instance;
-                if (localRef == null) {
-                    instance = localRef = new ThreadSafeSingleton();
+                if (instance == null) {
+                    instance = new ThreadSafeSingleton();
                 }
-                //false
             }
         }
-        return localRef;
+        return instance;
     }
 
 }
